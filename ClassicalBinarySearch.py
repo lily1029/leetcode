@@ -3,6 +3,7 @@ class Solution:
     @param nums: An integer array sorted in ascending order
     @param target: An integer
     @return: An integer
+    @the classical binary search is same as First Position of Target in Binary Search
     """
     def findPosition(self, nums, target):
         # write your code here
