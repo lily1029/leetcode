@@ -1,38 +1,10 @@
-
-import collections
-import networkx as nx
-#Definition for a Directed graph node
-
-class DirectedGraphNode1:
-    def __init__(self, x):
-        self.label = x
-        self.neighbors = []
-
-class DirectedGraphNode2:
-    def __init__(self, x):
-        self.label = x
-        self.neighbors = []
-
-class DirectedGraphNode3:
-    def __init__(self, x):
-        self.label = x
-        self.neighbors = []
-
-class DirectedGraphNode4:
-    def __init__(self, x):
-        self.label = x
-        self.neighbors = []
-
-class DirectedGraphNode5:
-    def __init__(self, x):
-        self.label = x
-        self.neighbors = []
-
-
-
-
 import collections
 
+# Definition for a Directed graph node
+class DirectedGraphNode:
+    def __init__(self, x):
+        self.label = x
+        self.neighbors = []
 
 class Solution:
     """
@@ -40,65 +12,43 @@ class Solution:
     @return: Any topological order for the given graph.
     """
     def get_indegree(self, graph):
-        
-        indegrees = {node : 0 for node in graph}
-        
+        indegrees = {node: 0 for node in graph}
         for node in graph:
             for neighbor in node.neighbors:
-                indegrees[neighbor] += 1 
+                indegrees[neighbor] += 1
         return indegrees
 
     def topSort(self, graph):
-        # write your code here
         indegrees = self.get_indegree(graph)
-        
-        queue = collections.deque([node 
-                                   for node in graph 
-                                   if indegrees[node] == 0
-                                  ])
+        queue = collections.deque([node for node in graph if indegrees[node] == 0])
         topo_order = []
-        
+
         while queue:
             node = queue.popleft()
-            topo_order.append(node)
-            
+            topo_order.append(node.label)
             for neighbor in node.neighbors:
-                indegrees[neighbor]  -= 1 
+                indegrees[neighbor] -= 1
                 if indegrees[neighbor] == 0:
                     queue.append(neighbor)
         return topo_order
+
 if __name__ == '__main__':
     # Create nodes
-    graph = nx.DiGraph()
-    graph.add_edges_from([("A", "B"), ("A", "D"), ("B", "D"), ("B", "C"), ("D", "E")])
-    print(graph.in_edges("E"))  # => [('a', 'e'), ('d', 'e')]
+    nodeA = DirectedGraphNode('A')
+    nodeB = DirectedGraphNode('B')
+    nodeC = DirectedGraphNode('C')
+    nodeD = DirectedGraphNode('D')
+    nodeE = DirectedGraphNode('E')
 
-    ll1 = DirectedGraphNode3(1)
-    ll1.label = 'C'
-    ll1.neighbors = []
+    # Define neighbors
+    nodeA.neighbors = [nodeB, nodeD]
+    nodeB.neighbors = [nodeC, nodeD]
+    nodeD.neighbors = [nodeE]
 
-    ll2 = DirectedGraphNode5(2)
-    ll2.label = 'E'
-    ll2.neighbors = []
+    # Create graph
+    graph = [nodeA, nodeB, nodeC, nodeD, nodeE]
 
-    ll3 = DirectedGraphNode4(3)
-    ll3.label = 'D'
-    ll3.neighbors = [ll2]
-
-    ll4 = DirectedGraphNode2(4)
-    ll4.label = 'B'
-    ll4.neighbors = [ll1, ll3]
-
-
-    ll5 = DirectedGraphNode1(5)
-    ll5.label = 'A'
-    ll5.neighbors  = [ll4, ll3]
-    
+    # Perform topological sort
     solution = Solution()
-    x = solution.topSort(graph)
-    print(x)
-
-
-
-
-    
+    topo_order = solution.topSort(graph)
+    print(topo_order)
