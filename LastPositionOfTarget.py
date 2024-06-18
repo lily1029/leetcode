@@ -12,13 +12,11 @@ class Solution:
 
             mid = (start + end) // 2
 
-            if A[mid] < target:
+            if A[mid] <= target:
                 start = mid
-            elif A[mid] > target:
-                end = mid
             else:
-                start = mid
-
+                end = mid
+            
         if A[end] == target:
             return end
         if A[start] == target:
