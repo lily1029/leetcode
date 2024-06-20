@@ -26,9 +26,9 @@ class Solution:
     @return: Return the lowest common ancestor(LCA) of the two nodes.
     """
     def lowestCommonAncestor(self, root, A, B):
-        # 如果 A 和 B 都在，return  LCA
-        # 如果只有 A 在，return A
-        # 如果只有 B 在，return B
+        # 如果 A 和 B 都在以root为根的二叉树里，return  LCA
+        # 如果只有 A 在以root为根的二叉树里，return A
+        # 如果只有 B 在以root为根的二叉树里 在，return B
         # 如果 A, B 都不在，return None
         if root is None:
             return None
