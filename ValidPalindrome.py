@@ -19,6 +19,6 @@ class Solution:
         return True 
 if __name__ == '__main__':
     ll = Solution()
-    s = "abcba"
+    s = "a,bcb a"
     x = ll.is_palindrome(s)
     print(x)
