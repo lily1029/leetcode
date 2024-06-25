@@ -24,7 +24,7 @@ class Solution:
         return nums
 if __name__ == '__main__':
     ll = Solution()
-    nums = [0, 1, 0, 3, 12]
+    nums = [0, 0, 0, 3, 1]
     ll.moveZeroes(nums)
     print(nums)
 
