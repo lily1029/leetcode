@@ -22,6 +22,7 @@ class Solution:
     """
     @param: root: the root of binary tree
     @return: collect and remove all leaves
+    对于叶子结点将其高度置为0。 对于任一非叶子节点，其高度等于左右子树中高度的最大值加一
     """
     def __init__(self):
         #这里存放拨开每层放的叶子结点结果
