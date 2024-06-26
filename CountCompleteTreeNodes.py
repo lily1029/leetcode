@@ -21,26 +21,52 @@ def build_tree():
     node_3.left =node_6 
 
     return node_1
+#前序遍历写法
+# class Solution:
+#     def count_nodes(self, root):
+#         # write your code here
+#         def pre_order(node):
+#             if node is None:
+#                 return 0
+
+#             left_nodes = pre_order(node.left)
+#             right_nodes = pre_order(node.right)
+            
+#             return left_nodes + right_nodes + 1
+#         return pre_order(root)
+
 class Solution:
-    def countNodes(self, root):
-        leftdepth = self.getdepth(root, True)
-        rightdepth = self.getdepth(root, False)
-
-        if leftdepth == rightdepth:
-            return 2 ** leftdepth - 1
-        else:
-            return 1 + self.countNodes(root.left) + self.countNodes(root.right)
-
-    def getdepth(self, root, isLeft):
+    """
+    @param root: root of complete binary tree
+    @return: the number of nodes
+    """
+    def count_nodes(self, root: TreeNode) -> int:
+        # write your code here
         if root is None:
-            return 0
-        if isLeft:
-            return 1 + self.getdepth(root.left, isLeft)
-        else:
-            return 1 + self.getdepth(root.right, isLeft)
+            return 0 
+        
+        #get left of the tree height
+        def lheight_tree(node):
+            if not node:
+                return 0 
+            return 1 + lheight_tree(node.left)
+        
+        #get left of the tree height
+        def rheight_tree(node):
+            if not node:
+                return 0
+            return 1 + rheight_tree(node.right)
+        
+        l, r = lheight_tree(root), rheight_tree(root)
 
+        if l > r:
+            return 1 + self.count_nodes(root.left) + self.count_nodes(root.right)
+        else:
+            return (2**l) - 1 
+
+    
 if __name__ == '__main__':
     root = build_tree()
     ll = Solution()
-    x = ll.countNodes(root)
+    x = ll.count_nodes(root)
     print(x)
