@@ -49,20 +49,25 @@ class Solution:
         def lheight_tree(node):
             if not node:
                 return 0 
-            return 1 + lheight_tree(node.left)
+            left_Treeheight = lheight_tree(node.left)
+            return 1 + left_Treeheight
         
         #get left of the tree height
         def rheight_tree(node):
             if not node:
                 return 0
-            return 1 + rheight_tree(node.right)
+            right_Treeheight = rheight_tree(node.right)
+            return 1 + right_Treeheight
         
-        l, r = lheight_tree(root), rheight_tree(root)
+        l = lheight_tree(root)
 
+        r = rheight_tree(root)
+
+        #如果左边tree height 大于右边tree height, 就recursively算出左子树的nodes number + 右子树nodes number + 1(root number)
         if l > r:
             return 1 + self.count_nodes(root.left) + self.count_nodes(root.right)
         else:
-            return (2**l) - 1 
+            return (2**l) - 1 #这里如果左右子树高度一样，就用perfect complete binary tree 公式算所有nodes number (2^l) - 1  l is tree height
 
     
 if __name__ == '__main__':
