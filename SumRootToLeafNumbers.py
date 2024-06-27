@@ -17,12 +17,18 @@ def build_tree():
 class Solution:
     def sum_numbers(self, root: TreeNode) -> int:
         def dfs(root: TreeNode, prevTotal: int) -> int:
+            #if root is none, we return 0
             if not root:
                 return 0
+            #如果当前节点不是叶子节点，则计算其子节点对应的数字，然后对子节点递归遍历。
             total = prevTotal * 10 + root.val
+            #如果遇到叶子节点，
+            #则将叶子节点对应的数字加到数字之和。
             if not root.left and not root.right:
                 return total
             else:
+                #深度优先搜索是很直观的做法。从根节点开始，遍历每个节点，
+                #如果当前节点不是叶子节点，则计算其子节点对应的数字，然后对子节点递归遍历。
                 return dfs(root.left, total) + dfs(root.right, total)
 
         return dfs(root, 0)
