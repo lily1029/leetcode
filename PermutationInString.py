@@ -51,3 +51,6 @@ if __name__ == '__main__':
     x = ll.checkInclusion(s1, s2)
     print(x)
 
+# 复杂度分析
+# 1. 时间复杂度： O（n + m + z), n 是target的长度，m是source的长度， z是字符集 小写字母｜z| = 26
+# 2. 空间复杂度： O（｜z|) 
