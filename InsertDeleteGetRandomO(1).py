@@ -4,7 +4,6 @@ class RandomizedSet:
     def __init__(self):
         # do intialization if necessary
         self.nums, self.pos = [], {}
-    
 
     """
     此题如果想在O(1)时间内完成insert, remove, getrandom,我们必须用一个数组（list/array）和一个
@@ -42,7 +41,6 @@ class RandomizedSet:
         del self.pos[val]
         return True 
         
-
     """
     @return: Get a random element from the set
     """
