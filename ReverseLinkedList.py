@@ -11,12 +11,19 @@ class Solution:
     """
     def reverse(self, head):
         # write your code here
+        #链表头节点前加一个 pre 节点， 并付初始值为None,
         pre = None  
+
+        #循环head 节点， 来遍历链表，
         while head:
+            #use nextNode to denote the next node of head
             nextNode = head.next 
-            head.next = pre     
+            #改变头指针的方向，指向pre,
+            head.next = pre  
+            #然后，pre 和 head 同时向前走一步，  
             pre = head
             head = nextNode 
+        #最后return pre 因为head 节点最后走向None 了
         return pre
 if __name__ == '__main__':
     ll = Solution()
