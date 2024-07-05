@@ -35,12 +35,15 @@ class Solution:
             #check the cur_pos is not in check, we put it, one position count 1 distance
             if cur_pos not in check:
                 check[cur_pos] = 1
-            cur_path = 0
+            cur_path = 0 #但是从别的点到这个点的path是0
             #here we go through 4 directions
             for dx, dy in DIRECTIONS:
                 #here we check whether the new position is valid or not, it is increasing than before
+                #找到一个点比当前的点小，也就是找到了one increasing path
                 if self.is_valid(x+dx, y+dy, matrix, h): #if it is valid
+                    #如果到这一步，说明有一条合法的increasing path, 那么我们update 这个max合法路径
                     cur_path = max(cur_path, check[(x+dx, y+dy)]) #we update the cur_path to the max of two paths
+            #循环完四个方向后，这个点加上最大的合法的increasing路径和它自己本身这个点算一步的路径
             check[cur_pos] += cur_path 
         
         vals = check.values()
