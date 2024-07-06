@@ -27,11 +27,13 @@ class Solution:
                     right -= 1 
             elif nums[left] + nums[right] < target:
                 left += 1 
-            elif nums[left] + nums[right] > target:
+            # elif nums[left] + nums[right] > target:
+            else:
                 right -= 1
 if __name__ == '__main__':
     ll = Solution()
-    nums = [-1,0,1,2,-1,-4]
+    # nums = [-1,0,1,2,-1,-4]
+    nums = [-1,0,1]
     x = ll.threeSum(nums)
     print(x)
     

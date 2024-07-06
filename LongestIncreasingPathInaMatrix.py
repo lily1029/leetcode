@@ -53,7 +53,8 @@ class Solution:
         #here we check the boundary conditions
         row, col = len(matrix), len(matrix[0])
         #here check the boundary and increasing point
-        return x >= 0 and x < row and y >= 0 and y < col and matrix[x][y] < h
+      # return x >= 0 and x < row and y >= 0 and y < col and matrix[x][y] < h
+        return 0 <= x < row and 0 <= y < col and matrix[x][y] < h
 if __name__ == '__main__':
     ll = Solution()
     matrix = [[1,2],[4,3]]
