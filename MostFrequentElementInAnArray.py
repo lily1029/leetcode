@@ -3,7 +3,7 @@ class Solution:
         #here we use a hash map to track 
         #how many times each element apear
         countMap = {}
-        #here we count the most apprea elements
+        #here we count the most appear elements
         maxCount = 0
         #here we track the most frequent element
         mostFrequent = None
