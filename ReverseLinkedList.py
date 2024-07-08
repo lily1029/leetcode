@@ -8,6 +8,10 @@ class Solution:
     """
     @param head: n
     @return: The new head of reversed linked list.
+    这里我们用三个指针同时开始指，定义第一个pre 指向None
+    head指向头指针，nextNode指向head.next,循环头指针，当
+    head 不为空，head.next指向pre,这里改变了头指针方向，
+    同时，pre和head个向前一步，继续循环直到head为空
     """
     def reverse(self, head):
         # write your code here
