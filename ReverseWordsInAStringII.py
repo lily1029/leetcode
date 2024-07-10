@@ -23,6 +23,7 @@ class Solution:
         return s[: : -1]
 if __name__ =='__main__':
     ll = Solution()
-    str = "a b c"
+    # str = "a b c"
+    str = "the sky is blue"
     x = ll.reverseWords(str)
     print(x)

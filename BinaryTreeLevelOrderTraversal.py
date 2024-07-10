@@ -15,12 +15,12 @@ def build_tree():
 
     return node_1
 
-def traverse_tree(root):
-    if not root:
-        return None
-    print(root.val, end = ' ')
-    traverse_tree(root.left)
-    traverse_tree(root.right)
+# def traverse_tree(root):
+#     if not root:
+#         return None
+#     print(root.val, end = ' ')
+#     traverse_tree(root.left)
+#     traverse_tree(root.right)
 
 def levelOrder(root):
         # write your code here
