@@ -23,12 +23,18 @@ def build_tree():
 #     traverse_tree(root.right)
 
 def levelOrder(root):
-        # write your code here
+        #这道题的主要思想是用一个queue,利用它的先进先出
+        #将二叉树每层的节点放入queue中，遍历queue直到遍历完
+        #corner case
         if not root:
             return []
+        #initize a queue
         queue = deque([root])
         result = []
+
+        #loop through the queue
         while queue:
+            #对每一层放入一个[]里，来区分不同层
             level = []
             for _ in range(len(queue)):
                 node = queue.popleft()
@@ -37,6 +43,7 @@ def levelOrder(root):
                     queue.append(node.left)
                 if node.right:
                     queue.append(node.right)
+            #将所有层的结果放入result中
             result.append(level)
         return result
 
