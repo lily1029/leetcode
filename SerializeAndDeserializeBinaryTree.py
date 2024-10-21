@@ -7,35 +7,58 @@ class TreeNode:
 def build_tree():
     node_1 = TreeNode(1)
     node_2 = TreeNode(2)
+    node_3 = TreeNode(3)
     
     node_1.left = node_2
-    node_1.right = '#'
-
-    node_2.left = '#'
-    node_2.right = '#'
+    node_1.right = node_3
 
     return node_1
 
 def serialize(root):
-        # write your code here
-        if not root:
-            return ['#']
-        
-        q = [root]
-        ans = []
+    # write your code here
+    if not root:
+        return ['#']
+    
+    q = [root]
+    ans = []
 
-        while q:
-            temp = q.pop(0)
-            if not temp:
-                ans.append('#')
-            else:
-                ans.append(str(temp))
-                q.append(str(temp.left))
-                q.append(str(temp.right))
-        return ans 
+
+    while q:
+        temp = q.pop(0)
+        if not temp:
+            ans.append('#')
+        else:
+            ans.append(str(temp.val))
+            q.append(temp.left)
+            q.append(temp.right)
+    return ans
+
+
+def deserialize(data):
+        # write your code here
+        if data[0] == '#':
+            return None
+        root = TreeNode(int(data.pop(0)))
+        q = [root]
+        isLeft = True
+        while data:
+            ch = data.pop(0)
+            if ch != '#':
+                node = TreeNode(int(ch))
+                q.append(node)
+                if isLeft:
+                    q[0].left = node
+                else:
+                    q[0].right = node
+            if not isLeft:
+                q.pop(0)
+            isLeft = not isLeft
+        return root
 
 if __name__ == '__main__':
     root = build_tree()
     x = serialize(root)
-    print(x)
+    print("Serialized:", x)  # Should show a valid serialized tree representation
     
+    y = deserialize(x)
+    print("Deserialized Tree (level order):", y)

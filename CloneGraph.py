@@ -1,11 +1,9 @@
 import collections
 
-
 class UndirectedGraphNode:
      def __init__(self, x):
          self.label = x
          self.neighbors = []
-
 
 class Solution:
     """
@@ -13,29 +11,38 @@ class Solution:
     @return: A undirected graph node
     """
     def cloneGraph(self, node):
+        #root是clone graph新图的根结点，copy原图的根结点node
         root = node 
         
+        #如果此根结点为空，就返回这个点（node)就行了
         if not node:
             return node 
         
+        #这里use bfs algorithm to traverse the graph and get
+        #all nodes,这些只是原图的结点，并没有边
         nodes = self.getNodes(node)
         
+        #这里复制所有的点，并把映射关系存下来： old --> new
+        #copy nodes {old node: new node}
         mapping = {}
         for node in nodes:
-            mapping[node] = UndirectedGraphNode(node.label)
-        
-        
+            mapping[node] = UndirectedGraphNode(node.label) 
         
         #copy all the deges
+        #copy neighbors(edges),这里复制所有的边，copy边的时候，for
+        #循环所有的点，然后又for循环每个点的邻居
         for node in nodes:
             new_node = mapping[node]
+            #The neighbors attribute is typically a list of nodes
+            #that are directly connected to the current node
             for neighbor in node.neighbors:
                 new_neighbor = mapping[neighbor]
+                #将mapping的新边放入new_node的neighbors,从而达到复制边
                 new_node.neighbors.append(new_neighbor)
         return mapping[root]
-       
-        
+         
     #get all nodes
+    #bfs algorithm
     def getNodes(self, node):
         queue = collections.deque([node])
         visited = set()
