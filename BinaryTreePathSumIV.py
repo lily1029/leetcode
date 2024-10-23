@@ -15,14 +15,16 @@ class Solution:
         #因为nums里的数字是ascending, 所以可以通过最后一个数//100算出树的深度
         #这里树的深度其实是矩阵的行数，如果一个三位数想得到百位数，整出100得百位数字
         # 221 // 100 = 2， 树的深度为2，放入的矩阵，矩阵的行数为2
+        #self.mx 是矩阵的行数，这个例子，行数为2
         self.mx = nums[n - 1] // 100
         
         # Calculate the size of the grid based on the maximum depth
         #算出列数根据行数多少，这里self.mx是行数为2，算出列数size至少为2
+        #这里self.mx行数为2，n=3,有3个nodes的树，所以，列数至少为 2
         for i in range(self.mx - 1):
             siz *= 2
         
-        # Initialize a grid with -1，这里创建一个矩阵g
+        # Initialize a grid with value -1，这里创建一个矩阵g
         g = []
         #这里for循环行数，行数是self.mx,对每一行加列叫row
         for i in range(self.mx):
@@ -38,7 +40,7 @@ class Solution:
         #这里for循环输入数组，算出每个数在矩阵中的行列位置
         for i in range(n):
             # Extract depth and position
-            #算row position
+            #算行位置row position
             dep = nums[i] // 100
             #算列position
             pos = nums[i] // 10 % 10
@@ -48,7 +50,7 @@ class Solution:
             #想得到一个数的最后一位 数字%10 e.g nums[i]%10
             g[dep - 1][pos - 1] = nums[i] % 10
         
-        # Start DFS to calculate the path sums
+        # Start DFS to calculate the path sums in the grid
         self.dfs(g, 0, 0, 0)
         
         # Return the final answer
