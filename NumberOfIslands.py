@@ -9,10 +9,12 @@ class Solution:
         # write your code here
         if not grid or not grid[0]:
             return 0 
+        
         #visited is a global variable, it can make sure the same point that we 
         #don't BFS twice
         visited = set()
         islands = 0
+
         #go through the whole matrix, i means rows, j means columns
         for i in range(len(grid)):
             for j in range(len(grid[0])):
