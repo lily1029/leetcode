@@ -10,29 +10,42 @@ class Solution:
         siz = 1
         
         # Determine the maximum depth of the tree and initialize the result
+        #self.ans是最后的结果
         self.ans = 0
         #因为nums里的数字是ascending, 所以可以通过最后一个数//100算出树的深度
+        #这里树的深度其实是矩阵的行数，如果一个三位数想得到百位数，整出100得百位数字
+        # 221 // 100 = 2， 树的深度为2，放入的矩阵，矩阵的行数为2
         self.mx = nums[n - 1] // 100
         
         # Calculate the size of the grid based on the maximum depth
+        #算出列数根据行数多少，这里self.mx是行数为2，算出列数size至少为2
         for i in range(self.mx - 1):
             siz *= 2
         
-        # Initialize a grid with -1
+        # Initialize a grid with -1，这里创建一个矩阵g
         g = []
+        #这里for循环行数，行数是self.mx,对每一行加列叫row
         for i in range(self.mx):
             row = []
+            #然后for循环列的数量，好放值，最开始的初始值都为-1
             for j in range(siz):
+                #每一次循环到一列，就放一个初始值-1
                 row.append(-1)
+            #将所创的行列放入g矩阵中
             g.append(row)
         
         # Fill the grid with values from nums
+        #这里for循环输入数组，算出每个数在矩阵中的行列位置
         for i in range(n):
             # Extract depth and position
+            #算row position
             dep = nums[i] // 100
+            #算列position
             pos = nums[i] // 10 % 10
             
             # Place the value in the grid
+            #因为grid是从g[0][0]开始，所以要减一
+            #想得到一个数的最后一位 数字%10 e.g nums[i]%10
             g[dep - 1][pos - 1] = nums[i] % 10
         
         # Start DFS to calculate the path sums
@@ -57,8 +70,9 @@ class Solution:
             self.ans += sum
             return
         
-        # Recursive DFS calls for left and right child nodes
+        # Recursive DFS calls for left child nodes
         self.dfs(g, d + 1, 2 * p, sum)
+        # Recursive DFS calls for right child nodes
         self.dfs(g, d + 1, 2 * p + 1, sum)
 
 if __name__ == '__main__':
