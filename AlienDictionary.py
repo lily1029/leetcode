@@ -17,17 +17,21 @@ class Solution:
     
     # here, we build a graph, the input is a list of words
     def build_graph(self, words):
-        # key is node, value is neighbors(next word in Alien lexicographically order)
+        # key is node, value is neighbors(next word in Alien
+        # lexicographically order)
         # we use a hashmap to store
         graph = {}
 
         # initialize graph
         # go through each word one by one in words list
         for word in words:
-            # go through each word's character one by one to compare in two neighbouring words
+            # go through each word's character one by one 
+            #to compare in two neighbouring words
             for c in word:
-                # if this character is not in graph dictionary, put it in, the key is each character
-                # the value is we set up a set in order not to have the repeated characters
+                # if this character is not in graph dictionary,
+                # put it in, the key is each character
+                # the value is we set up a set in order not 
+                # to have the repeated characters
                 if c not in graph:
                     graph[c] = set()
 
@@ -36,11 +40,13 @@ class Solution:
         n = len(words)
         # go through each word, 这里是n-1因为每2个words一比较，n-1次比较完
         for i in range(n - 1):
-            # compare two neighbouring words 's fist character to see it is same or not
+            # compare two neighbouring words 's fist character to see 
+            #it is same or not
             for j in range(min(len(words[i]), len(words[i + 1]))):
                 # if two neighbour words the same position's characters are not same
                 if words[i][j] != words[i + 1][j]:
-                    # we put the next neighbour words[i + 1][j] into words[i][j]] 's set to build up an edge
+                    # we put the next neighbour words[i + 1][j] 
+                    # into words[i][j]] 's set to build up an edge
                     graph[words[i][j]].add(words[i + 1][j])
                     #不同的字母建边完成，skip the rest codes
                     break
