@@ -6,8 +6,6 @@ class Solution:
     """
     def alienOrder(self, words):
         # first, we need to build a graph
-        # we use a method to build a graph
-        graph = self.build_graph(words)
         graph = self.build_graph(words)
         
         # if the graph is empty, return ""
@@ -36,7 +34,7 @@ class Solution:
         # add edges
         # get the number of different words in words list
         n = len(words)
-        # go through each word
+        # go through each word, 这里是n-1因为每2个words一比较，n-1次比较完
         for i in range(n - 1):
             # compare two neighbouring words 's fist character to see it is same or not
             for j in range(min(len(words[i]), len(words[i + 1]))):
@@ -44,8 +42,10 @@ class Solution:
                 if words[i][j] != words[i + 1][j]:
                     # we put the next neighbour words[i + 1][j] into words[i][j]] 's set to build up an edge
                     graph[words[i][j]].add(words[i + 1][j])
-                    # if they are equal, skip the rest of codes
+                    #不同的字母建边完成，skip the rest codes
                     break
+
+                #这里是同一位置相同字母，以短的长度为主，所以用min
                 if j == min(len(words[i]), len(words[i + 1])) - 1:
                     if len(words[i]) > len(words[i + 1]):
                         return None
@@ -86,7 +86,7 @@ class Solution:
                 if indegree[neighbor] == 0:
                     heappush(queue, neighbor)
 
-        # if all nodes popped
+        # here we check if all nodes popped
         if len(topo_order) == len(graph):
             return topo_order
 
