@@ -10,8 +10,10 @@ class Solution:
         if not nums:
             return -1
         
+        #here do binary search
         start, end = 0, len(nums) - 1
 
+        #go through the list
         while start + 1 < end:
             mid = (start + end) // 2 
             if nums[mid] < target:
