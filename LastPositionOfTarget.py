@@ -28,3 +28,6 @@ if __name__ =='__main__':
     target = 2
     x = ll.lastPosition(nums, target)
     print(x)
+
+
+
