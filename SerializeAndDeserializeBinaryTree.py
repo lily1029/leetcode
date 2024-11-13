@@ -24,13 +24,13 @@ def serialize(root):
 
 
     while q:
-        temp = q.pop(0)
-        if not temp:
+        node = q.pop(0)
+        if not node:
             ans.append('#')
         else:
-            ans.append(str(temp.val))
-            q.append(temp.left)
-            q.append(temp.right)
+            ans.append(str(node.val))
+            q.append(node.left)
+            q.append(node.right)
     return ans
 
 

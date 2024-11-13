@@ -34,3 +34,6 @@ if __name__ =='__main__':
     target = 2
     x = ll.findPosition(nums, target)
     print(x)
+
+
+
