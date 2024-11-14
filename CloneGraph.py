@@ -44,9 +44,11 @@ class Solution:
     #get all nodes
     #bfs algorithm
     def getNodes(self, node):
+        #初始化一个queue
         queue = collections.deque([node])
         visited = set()
         
+        #循环这个queue
         while queue:
             node = queue.popleft()
             visited.add(node)
