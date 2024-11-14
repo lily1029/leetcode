@@ -48,13 +48,13 @@ class Solution:
         visited = set()
         
         while queue:
-            head = queue.popleft()
-            visited.add(head)
+            node = queue.popleft()
+            visited.add(node)
             
-            for head in head.neighbors:
-                if head not in visited:
-                    visited.add(head)
-                    queue.append(head)
+            for node in node.neighbors:
+                if node not in visited:
+                    visited.add(node)
+                    queue.append(node)
         return visited
 
 # Example usage
