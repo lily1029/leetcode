@@ -14,6 +14,7 @@ class Solution:
     @return: An integer which is the first index of target.
     """
     def searchBigSortedArray(self, reader, target):
+        #因为我们不知道array的长度，所以，最开始start = 0, end = 1, 去设定最小的array的左右边界
         start, end = 0, 1
         
         # Expand the search range exponentially until the end is greater than the target
@@ -37,6 +38,8 @@ class Solution:
 if __name__ == '__main__':
     ll = Solution()
     reader = ArrayReader([1, 3, 6, 9, 21])
-    target = 3
+    target = 9
     x = ll.searchBigSortedArray(reader, target)
     print(x)  # Output should be 1
+
+
