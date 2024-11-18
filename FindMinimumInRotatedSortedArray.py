@@ -4,13 +4,15 @@ class Solution:
     @return: the minimum number in the array
     """
     def findMin(self, nums):
-        # write your code here
+        #做这道题首先要将数据矩形化，然后， 因为要找最小的
+        #所以我们在找右下角那段,做二分的区间在（nums[mid], nums[end])
         if not nums:
             return -1
         start, end = 0, len(nums) - 1 
         
         while start + 1 < end:
             mid = (start + end) // 2 
+            
             if nums[mid] <= nums[end]:
                 end = mid
             else:
