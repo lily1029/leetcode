@@ -8,7 +8,6 @@ class Solution:
     @return: An integer
     """
     def ladderLength(self, start, end, dict):
-        # write your code here
         #we put end in dict in order to compare with start
         dict.append(end)
 
@@ -24,7 +23,7 @@ class Solution:
         #go through the queue, while queue is not empty 
         while queue:
             distance += 1
-            #go through the queue
+            #go through the queue,因为要知道有几层长度，所以有层级遍历，用到for循环
             for i in range(len(queue)):
                 #pop out the word and compare it with end, 
                 #if equal, return distance
