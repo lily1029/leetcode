@@ -12,7 +12,7 @@ class Solution:
         
         while start + 1 < end:
             mid = (start + end) // 2 
-            
+
             if nums[mid] <= nums[end]:
                 end = mid
             else:
@@ -24,3 +24,5 @@ if __name__ == '__main__':
     nums = [4, 5, 6, 7, 0, 1, 2]
     x = ll.findMin(nums)
     print(x)
+
+
