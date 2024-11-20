@@ -31,3 +31,4 @@ if __name__ == '__main__':
     a = [1,2,3,4,1]
     x = ll.find_peak(a)
     print(x)
+
