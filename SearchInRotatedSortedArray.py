@@ -1,8 +1,8 @@
 class Solution:
     """
-    @param A: an integer rotated sorted array
-    @param target: an integer to be searched
-    @return: an integer
+    这道题的做法就是：因为它是rotated sorted array,这个array就分成了2
+    部分，上面一部分，下面一部分，所以分界线条件是 A[mid] >= A[start]在
+    上部分，否则就是分在了下部分，详情请看图
     """
 
     def search(self, A, target):
