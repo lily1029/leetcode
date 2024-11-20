@@ -4,8 +4,10 @@ from typing import (
 
 class Solution:
     """
-    @param a: An integers array.
-    @return: return any of peek positions.
+    做这道题主要是要找到peak的点，首和尾都不在peak，所以
+    start=1, end=len(a)-2,最主要找到的peak是符合这个
+    条件：a[mid] < a[mid + 1]，如果此条件符合，就找到了
+    peak 点 
     """
     def find_peak(self, a: List[int]) -> int:
         # write your code here

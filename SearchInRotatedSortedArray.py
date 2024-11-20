@@ -36,3 +36,5 @@ if __name__ == '__main__':
     target = 1
     x = ll.search(A, target)
     print(x)
+
+
