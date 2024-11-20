@@ -15,9 +15,11 @@ class Solution:
 
         while start + 1 < end:
             mid = (start + end) // 2 
+            # 在上升区间
             if a[mid] < a[mid + 1]:
                 start = mid 
             else:
+                # 在下降区间
                 end = mid 
         
         if a[end] > a[start]:
