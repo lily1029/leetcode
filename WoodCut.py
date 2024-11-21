@@ -43,3 +43,6 @@ if __name__ =='__main__':
     k = 7
     x = ll.woodCut(L, k)
     print(x)
+
+
+
