@@ -13,6 +13,8 @@ class Solution:
             #用binary search, 找到中点
             mid = (start + end) // 2
             # 这里算row index and col index
+            #The row is found using integer division: mid // col.
+            #The column is found using the modulus operator: mid % col.
             x, y = mid // col, int(mid % col) 
             num = matrix[x][y]
             

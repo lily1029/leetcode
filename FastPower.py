@@ -25,3 +25,5 @@ if __name__ =='__main__':
     x = ll.fastPower(a, b, n)
     print(x)
     
+
+
