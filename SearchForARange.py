@@ -53,3 +53,5 @@ if __name__ =='__main__':
     target = 8
     x = ll.searchRange(array, target)
     print(x)
+
+
