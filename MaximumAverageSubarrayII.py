@@ -8,13 +8,22 @@ class Solution:
         # write your code here
         if not nums:
             return 0 
+        #here the start is the smallest number in nums
+        #here end is the largest number in nums
+        #here we use the way to binary search the answer
         start, end = min(nums), max(nums)
         
         while end - start > 1e-5:
             mid = (start + end) / 2 
+            #检查在数组nums里是否可以找到一个
+            #子数组个数等于k，且最大均值是mid，如果可以
+            #找到返回true, start = mid, 代表这个最终的值
+            #可以在均值mid 的基础上在往上调
             if self.check(nums, k, mid):
                 start = mid 
             else:
+                #返回false, 代表找不到这样的子数组，均值
+                #要往小调
                 end = mid 
         return start 
         
