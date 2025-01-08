@@ -51,3 +51,5 @@ if __name__ =='__main__':
     k = 3
     x = ll.maxAverage(nums, k)
     print(x)
+
+
