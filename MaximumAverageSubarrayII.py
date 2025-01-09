@@ -41,7 +41,8 @@ class Solution:
             #只要找到一个子数组长度大于等于k, 且它的和大于等于0，就是True的
             if prefixSum[i] - minPrefixSum >= 0:
                 return True 
-            
+            #这里要更新minPrefixSum是因为滑动窗口向右走时，minPrefixSum是左边窗口的指针
+            #这样确保窗口的size 为k,选小的是因为-average,而且是prefixsum的和
             minPrefixSum = min(minPrefixSum, prefixSum[i - k + 1])
             
         return False
