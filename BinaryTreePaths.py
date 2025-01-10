@@ -98,3 +98,5 @@ if __name__ == '__main__':
     ll = Solution()
     x = ll.binaryTreePaths(root)
     print(x)
+
+
