@@ -51,3 +51,6 @@ if __name__ == '__main__':
     ll = Solution()
     x = ll.lowestCommonAncestorII(root, node_3, node_5)
     print(x.val)
+
+
+
