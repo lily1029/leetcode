@@ -21,17 +21,19 @@ class Solution:
     @return: nothing
     """
     def flatten(self, root):
-        # write your code here
+        # we use divide conquer algorithm
         self.helper(root)
     
     def helper(self, root):
         if not root:
             return None
         
+        #divide part
         left_last = self.helper(root.left)
         right_last = self.helper(root.right)
         
-        #connect
+        #connect the root to the two sub-trees
+        #conquer part
         if left_last:
             left_last.right = root.right
             root.right = root.left 
@@ -48,3 +50,4 @@ if __name__ == '__main__':
     ll = Solution()
     x = ll.flatten(root)
     print(x)
+
