@@ -59,8 +59,11 @@ class BSTIterator:
 if __name__ == '__main__':
     root = build_tree()
     ll = BSTIterator(root)
-    x = ll.hasNext()
     y = ll._next()
+    print(str(y.val))
+    x = ll.hasNext()
     print(x)
-    print(y)
+    
+
+
 
