@@ -26,7 +26,7 @@ class Solution:
         dummy.right = root
         stack = [dummy]
         
-        # look for kth smallest, we pop出k个节点，
+        #look for kth smallest, we pop出k个节点，
         #剩下在栈顶的节点就是第kth smallest element
         #因为虽然是kth，因为index start from 0    
         for i in range(k):
@@ -54,3 +54,5 @@ if __name__ == '__main__':
     k = 2
     x = ll.kthSmallest(root, k)
     print(x)
+
+
