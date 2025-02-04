@@ -43,5 +43,3 @@ if __name__ == '__main__':
     print(x)  # Output should be 1
 
 
-Input: nums = [10, 9, 8, 7], 
-Output: 10
