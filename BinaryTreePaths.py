@@ -72,25 +72,25 @@ class Solution:
         self.dfs(root, [str(root.val)], result)
         return result
 
-    def dfs(self, node, path, result):
+    def dfs(self, root, path, result):
         #这里找到叶子节点，所以把它join起来，成为一条从根结点到叶子节点的合法路径
-        if node.left is None and node.right is None:
+        if root.left is None and root.right is None:
             result.append('->'.join(path))
             return
 
         #dfs 左子树，如果左子树不为空，append 左子树的节点，
-        if node.left:
-            path.append(str(node.left.val))
+        if root.left:
+            path.append(str(root.left.val))
             #然后继续对左子树的左孩子进行dfs
-            self.dfs(node.left, path, result)
+            self.dfs(root.left, path, result)
             #此路径dfs后，backtracking, 返回上层
             path.pop()  # 回溯
         
         #dfs 右子树，如果右子树不为空，append 右子树的节点，
-        if node.right:
-            path.append(str(node.right.val))
+        if root.right:
+            path.append(str(root.right.val))
             #然后继续对右子树的右孩子进行dfs
-            self.dfs(node.right, path, result)
+            self.dfs(root.right, path, result)
             #此路径dfs后，backtracking, 返回上层
             path.pop()
 if __name__ == '__main__':
