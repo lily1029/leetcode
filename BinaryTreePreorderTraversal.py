@@ -22,8 +22,10 @@ class Solution:
        # write your code here
        if not root:
            return []
+       
        stack = [root]
        preorder = []
+
        while stack:
            node = stack.pop()
            preorder.append(node.val)
@@ -39,3 +41,4 @@ if __name__ == '__main__':
     x = ll.preorderTraversal(root)
     print(x)
     
+
