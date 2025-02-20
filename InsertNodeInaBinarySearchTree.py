@@ -15,13 +15,10 @@ def build_tree():
     node_3.left = node_4
 
     return node_1
-
+"""
+# Method 1 Recursion Version Answer
 class Solution:
-    """
-    @param: root: The root of the binary search tree.
-    @param: node: insert this node into the binary search tree
-    @return: The root of the new binary search tree.
-    """
+   
     def insertNode(self, root, node):
         # 当root为空时，就是找到该插这个node的地方，所以返回node
         if not root:
@@ -36,6 +33,39 @@ class Solution:
             root.right = self.insertNode(root.right, node)
         
         return root
+"""
+# Method 2 Non Recursion Version
+class Solution:
+    """
+    @param root: The root of the binary search tree.
+    @param node: insert this node into the binary search tree.
+    @return: The root of the new binary search tree.
+    """
+    def insertNode(self, root, node):
+        #如果root是空，就找到插node的地方
+        if root is None:
+            return node
+        
+        #先用一个curt指向root    
+        curt = root
+
+        #比较curt和要插的node是否相等，如果不等，比较大小
+        while curt != node:
+            #如果要插的node的值小于curt值，很有可能可以插到root的左孩子
+            if node.val < curt.val:
+                #这里要判断curt是不是已经有了左孩子，如果没有左孩子，直接连
+                if curt.left is None:
+                    curt.left = node
+                #当curt有左孩子的时候，curt指向它的左孩子， 在进行比较
+                curt = curt.left
+            else:
+                #如果node的值大于curt值，很可能可以插到curt的右孩子位置
+                #当然要先检查，curt的右孩子为空，才行，否则，走向curt.right在比较
+                if curt.right is None:
+                    curt.right = node
+                curt = curt.right
+        return root
+
 if __name__ == '__main__':
     root = build_tree()
     ll = Solution()
