@@ -48,3 +48,7 @@ if __name__ == '__main__':
     ll = Solution()
     x = ll.minDepth(root)
     print(x)
+
+
+
+
