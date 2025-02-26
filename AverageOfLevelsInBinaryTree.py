@@ -45,7 +45,7 @@ class Solution:
                 node = queue.pop(0)
                 #将node值放入到temp中，这样binary tree中每一层节点都在一起
                 temp.append(node.val)
-                
+
                 #并且查看这个node是不是有左右孩子，如果有，放入queue中
                 if node.left:
                     queue.append(node.left)
