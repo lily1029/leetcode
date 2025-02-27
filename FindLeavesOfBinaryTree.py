@@ -56,7 +56,7 @@ class Solution:
 
         #这里保证同一层的叶子节点在同一个list里
         self.leaves[height].append(root.val)
-        
+
         #返回当层的height,为上一层用
         return height
 
@@ -65,3 +65,7 @@ if __name__ == '__main__':
     ll = Solution()
     x = ll.findLeaves(root)
     print(x)
+
+    
+
+
