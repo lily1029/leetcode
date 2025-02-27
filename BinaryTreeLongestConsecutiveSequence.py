@@ -61,3 +61,6 @@ if __name__ == '__main__':
     ll = Solution()
     x = ll.longestConsecutive(root)
     print(x)
+
+
+
