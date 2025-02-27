@@ -29,7 +29,6 @@ class Solution:
         self.leaves = []
     
     def findLeaves(self, root):
-        # write your code here
         #这里调用tree_height()函数
         self.tree_height(root)
         
@@ -37,21 +36,27 @@ class Solution:
         return self.leaves
     
     def tree_height(self, root):
+
         #root为None时，return -1
         if root == None:
             return -1 
+        
         #调用左子树
         left_height = self.tree_height(root.left)
         #调用右子树
         right_height = self.tree_height(root.right)
+
         #上层节点的高度
         height = 1 + max(left_height, right_height)
+
         #这里判断叶子节点在哪层
         if height >= len(self.leaves):
             #不同的层，新开一个list[] 
             self.leaves.append([])
+
         #这里保证同一层的叶子节点在同一个list里
         self.leaves[height].append(root.val)
+        
         #返回当层的height,为上一层用
         return height
 
