@@ -66,3 +66,7 @@ if __name__ == '__main__':
     ll= Solution()
     x = ll.longestConsecutive3(root)
     print(x)
+
+
+
+
