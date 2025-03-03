@@ -30,3 +30,6 @@ if __name__ == '__main__':
     s = "a,bcb a"
     x = ll.is_palindrome(s)
     print(x)
+
+
+

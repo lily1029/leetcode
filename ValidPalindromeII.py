@@ -20,13 +20,19 @@ class Solution:
         
         # here if left >= right, here return True, otherwise , it return False
         return left >= right
-        
+
+    #这里其实是two pointer算法， 设最左边一个指针，最右边一个指针，然后在左边<右边的情况下，比较这两个字母是不是
+    #一样，不一样，返回这left 和right的位置，然后要不然去掉left一个字母或是去掉right字母看能不能成valid palindrome   
     def twoPointer(self, s, left, right):
         while left < right:
             if s[left] != s[right]:
                 return left, right
+
+            #如果left 和right 一样，left往前一个，right退后一个
             left += 1
             right -= 1
+
+        #返回这个left 和right 的位置
         return left, right
 if __name__ == '__main__':
     ll = Solution()
