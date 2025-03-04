@@ -28,6 +28,7 @@ if __name__ == '__main__':
     x = ll.add(1)
     y = ll.add(3)
     z = ll.add(5)
+    t = ll.add(5)
     q = ll.find(4)
     w = ll.find(7)
     print(q)

@@ -47,3 +47,6 @@ if __name__ == '__main__':
     x = ll.twoSum6(nums, target)
     print(x)
     
+
+
+
