@@ -34,3 +34,4 @@ if __name__ == '__main__':
     target = 5 
     x = ll.twoSum7(nums, target)
     print(x)
+
