@@ -6,14 +6,15 @@ class Solution:
     """
 
     def sortLetters(self, chars):
-        # write your code here
-        # 定义左右指针并初始化
+        
+        # Convert string to a list of characters since strings are immutable in Python
         chars = list(chars)
 
+        # 定义左右指针并初始化
         left = 0
         right = len(chars) - 1
 
-        # 两指针相向移动，交会则结束
+        # 两指针相向移动，交差则结束
         while left <= right:
             # 左指针向右移动，直到找到第一个大写字母
             while left <= right and chars[left].islower():
