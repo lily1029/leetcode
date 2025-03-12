@@ -16,7 +16,7 @@ class Solution:
         # here we find a pivot element and do the partition  
         color = (color_from + color_to) // 2
         
-        #likes quicksort 
+        #like quicksort 
         left, right = index_from, index_to
         while left <= right:
             while left <= right and colors[left] <= color:
@@ -28,8 +28,11 @@ class Solution:
                 left += 1
                 right -= 1
         
-        # recursively do the left and right
+        # recursively do the left part, 这时候left和right已经交错了，right到了左边， left到了右边
+        #color 也被partition 成 color_from 到pivoit color, 从左边界到right指针
         self.sort(colors, color_from, color, index_from, right)
+        # recursively do the right
+        #这里被partition 成color + 1 到color_to, 然后用left 指针到最右的边界
         self.sort(colors, color + 1, color_to, left, index_to)
 
 if __name__ == '__main__':
