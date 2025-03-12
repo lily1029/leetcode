@@ -9,8 +9,8 @@ class Solution:
         return self.quickSelect(nums, 0, len(nums) - 1, k - 1)
     
     def quickSelect(self, nums, start, end, k):
-        #当start >= end时，说明两个指针已经相交相错了，返回
-        if start >= end:
+        #当start == end时，说明两个指针已经相交找到第kth smallest number
+        if start == end:
             return nums[start]
         
         left, right = start, end
@@ -26,20 +26,19 @@ class Solution:
                 left += 1
                 right -= 1
         
-        # k在right的左边，也就是 k <= right, 同时 start <= right, 
-        #here recursively do left part       
-        if right >= k and start <= right:
+        # k在right的左边，recursively do left part       
+        if k <= right:
             return self.quickSelect(nums, start, right, k)
-        # k 在 left 的右边，也就是 k >= left, 同时要保证边界left <= end, 
-        #recursively do right part
-        elif left <= k and left <= end:
+        # k 在 left 的右边，recursively do right part
+        elif k >= left: #and left <= end:
             return self.quickSelect(nums, left, end, k)
-        else:
-            #这里是既不在左边也不在右边，那就是要找的kth最小的数
-            return nums[k] 
+        #既不在左边也不在右边，就是要找的第k小的数
+        return nums[k]
 if __name__ =='__main__':
     ll = Solution()
     nums = [3, 4, 1, 2, 5]
     k = 3
     x = ll.kthSmallest(k, nums)
     print(x)
+
+
