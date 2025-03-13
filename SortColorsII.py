@@ -7,7 +7,7 @@ class Solution:
     def sortColors2(self, colors, k):
         self.sort(colors, 1, k, 0, len(colors) - 1)
     
-    #here we define a helper method sort()    
+    #here define a helper method sort()    
     def sort(self, colors, color_from, color_to, index_from, index_to):
         # the corner case when it is only one color, storp and return 
         if color_from == color_to or index_from == index_to:
@@ -28,7 +28,7 @@ class Solution:
                 left += 1
                 right -= 1
         
-        # recursively do the left part, 这时候left和right已经交错了，right到了左边， left到了右边
+        #recursively do the left part, 这时候left和right已经交错了,right到了左边，left到了右边
         #color 也被partition 成 color_from 到pivoit color, 从左边界到right指针
         self.sort(colors, color_from, color, index_from, right)
         # recursively do the right
