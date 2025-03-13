@@ -6,12 +6,13 @@ class Solution:
     """
     def kthSmallest(self, k, nums):
         #这里的index是从0开始，所以，要找kth smallest num 是 k-1
-        return self.quickSelect(nums, 0, len(nums) - 1, k - 1)
+        self.quickSelect(nums, 0, len(nums) - 1, k - 1)
+        return nums[k - 1]
     
     def quickSelect(self, nums, start, end, k):
         #当start == end时，说明两个指针已经相交找到第kth smallest number
         if start == end:
-            return nums[start]
+            return
         
         left, right = start, end
         pivot = nums[(left + right) // 2]
@@ -32,8 +33,7 @@ class Solution:
         # k 在 left 的右边，recursively do right part
         elif k >= left: #and left <= end:
             return self.quickSelect(nums, left, end, k)
-        #既不在左边也不在右边，就是要找的第k小的数
-        return nums[k]
+        
 if __name__ =='__main__':
     ll = Solution()
     nums = [3, 4, 1, 2, 5]
