@@ -37,3 +37,7 @@ if __name__ =='__main__':
     k = 3
     x = ll.winSum(nums, k)
     print(x)
+
+
+
+
