@@ -41,3 +41,6 @@ if __name__ == '__main__':
     ll.moveZeroes(nums)
     print(nums)
 
+
+
+
