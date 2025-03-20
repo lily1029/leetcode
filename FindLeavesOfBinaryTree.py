@@ -46,7 +46,7 @@ class Solution:
         #调用右子树
         right_height = self.tree_height(root.right)
 
-        #上层节点的高度
+        #上层节点的高度(这里选出这层左右子树高度最大值在加一，是上层的高度)
         height = 1 + max(left_height, right_height)
 
         #这里判断叶子节点在哪层
