@@ -39,3 +39,4 @@ if __name__ == '__main__':
     # num = [1,3,2,3]
     num = [1, 2, 5, 4, 3]
     x = print(ll.nextPermutation(num))
+
