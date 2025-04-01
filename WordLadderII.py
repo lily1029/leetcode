@@ -10,7 +10,7 @@ class Solution:
     #从 end 到 start 做一次 BFS，并且把所有点到 end 的距离都保存在 distance 中。
     #然后在从 start 到 end 做一次 DFS，每走一步必须确保离 end 的 distance 越来越近。
     def findLadders(self, start, end, dict):
-        
+
         dict.append(start)
         dict.append(end)
         distance = {}
@@ -63,3 +63,5 @@ if __name__ == '__main__':
     dict =["hot","dot","dog","lot","log"]
     x = ll.findLadders(start, end, dict)
     print(x)
+
+
