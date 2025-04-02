@@ -37,7 +37,9 @@ class Solution:
     
     def search(self, root):
         #当root为空时， 返回此root的最大上升长度up_length 为0
+        #这里up_length是root的左子树的最大上升长度
         #返回此root的 最大下降长度down_length 为0
+        #这里down_length是root的右子树的最大下降长度
         if not root:
             return [0, 0]
         

@@ -27,7 +27,7 @@ class Solution:
         #这里要for 循环len(nums)的长度，因为会有
         #不同的 nums[i]开头的子集，
         for i in range(k, len(nums)):
-            
+
             #这里表示以nums[i]开头的子集
             subset.append(nums[i])
 
@@ -41,3 +41,5 @@ if __name__ == '__main__':
     nums = [1,2] 
     x = ll.subsets(nums)
     print(x)
+
+
