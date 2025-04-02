@@ -23,6 +23,8 @@ class Solution:
         for i in range(k, len(nums)):
             # 剪枝, 如果nums[i] == nums[i - 1]，说明有重复的数字
             # continue 掉后面的代码
+            #这里i != k，是因为，i 要for循环k 到 len(nums)长度，i已经到了
+            #k的下一个数字
             if (i != k and nums[i] == nums[i - 1]):
                 continue
 
