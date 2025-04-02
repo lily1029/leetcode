@@ -50,6 +50,7 @@ class Solution:
             return 
         
         for word in self.get_next_words(curt, dict):
+            #这里确保点越走越距离终点近
             if distance[word] != distance[curt] - 1:
                 continue 
             path.append(word)
