@@ -62,3 +62,8 @@ if __name__ == '__main__':
     str = "dog cat cat dog"
     x = ll.wordPattern(pattern, str)
     print(x)
+
+
+
+
+
