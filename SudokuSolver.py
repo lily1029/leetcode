@@ -15,12 +15,14 @@ class Solution:
     
     #这里是dfs算法，i: 代表行 j：代表列
     def backtrack(self, board, i, j):
+
         # m, n 代表棋盘有9行，和 9 列
         m, n = 9, 9
 
         # 到达第n列，越界，换到下一行第0列重新开始
         # 当 j 列 == 9 时，说明这一行已经结束，到下一行
-        #重新从0列开始放值, 所以 i + 1 （行 + 1）
+        #重新从0列开始放值, 所以 i + 1 （行 + 1）,
+        #列从0开始
         if j == n:
             return self.backtrack(board, i + 1, 0)
         
@@ -28,11 +30,12 @@ class Solution:
         if i == m:
             return True
         
-        # 如果有预设数字，不用我们穷举直接下一个j+1
+        # 如果有预设数字，不用我们穷举直接下一列 j+1
         if board[i][j] != 0:
             return self.backtrack(board, i, j + 1)
         
-        #从board的(0,0)开始从1 开始试直到9
+        #从board的(0,0)开始从1 开始试直到9， board 上
+        #填的val 是数字从 1- 9
         for val in range(1, 10):
 
             #如果遇到不合法的数字，就跳过
@@ -57,13 +60,14 @@ class Solution:
         return False
     
     def isValid(self, board, row, col, val):
-        #这个游戏是放1-9的数字，所以for循环 range(9)
+        #这个游戏是放1-9的数字，所以for循环 9次
         for i in range(9):
-            # 判断行是否存在重复
+
+            # 判断行是否存在重复，row 固定， i（列）在不断的加 0， 1， 2， ....8
             if board[row][i] == val:
                 return False
             
-            # 判断列是否存在重复
+            # 判断列是否存在重复， 同上，列不动，查看行上有没有重复
             if board[i][col] == val:
                 return False
             
