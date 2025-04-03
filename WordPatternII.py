@@ -4,6 +4,8 @@ class Solution:
     @param str: a string, denote matching string
     @return: a boolean
     """
+    #这个题的做法：就是拿pattern 的一个字母和string 里的
+    #不同长度的字符串 一个一个对应的去试着匹配。
     def wordPatternMatch(self, pattern, string):
         
         #这里其实是call dfs() 算法
@@ -17,6 +19,7 @@ class Solution:
         #先拿到pattern[0]的第一个字符，然后看看它之前有没有出现过，   
         char = pattern[0]
 
+        #如果已经在mapping里
         if char in mapping:
             #拿出这个字符，放入到word里
             word = mapping[char]
@@ -28,7 +31,7 @@ class Solution:
         
         #这里查看pattern应该对应哪个字符串(string)    
         for i in range(len(string)):
-            
+
             #比如当前word对应这个位置
             word = string[:i + 1]
 
