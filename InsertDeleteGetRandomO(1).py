@@ -30,6 +30,7 @@ class RandomizedSet:
         # write your code here
         if val not in self.pos:
             return False 
+        
         # idx是要删的这个数在哈希表中的位置，last 是数组中最后一个数
         idx, last = self.pos[val], self.nums[-1]
         
@@ -37,7 +38,10 @@ class RandomizedSet:
         #，也就是数组中原始位置
         #把最后一个数在哈希表中的位置换成要删除数的位置
         self.nums[idx], self.pos[last] = last, idx
+        #pop出数组最后位置的值，在右边，pop出去的这个数已经覆盖到前面要删的数
+        #字的位置了
         self.nums.pop()
+        #删掉这个数字在哈希表里
         del self.pos[val]
         return True 
         
@@ -65,4 +69,5 @@ if __name__ == '__main__':
     param = obj.insert(2)
     y = obj.getRandom()
     print(y)
+
 
