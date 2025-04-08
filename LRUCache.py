@@ -10,6 +10,7 @@ class LRUCache:
         self.dummy = LinkedNode()
         self.tail = self.dummy
         self.capacity = capacity
+
     #push_back method的作用是在一开始hashtable里没有任何key时，我们往进放新节点
     def push_back(self, node):
         self.key_to_prev[node.key] = self.tail
@@ -21,7 +22,8 @@ class LRUCache:
         head = self.dummy.next 
         del self.key_to_prev[head.key]
         self.dummy.next = head.next 
-        if head.next:  # Check if there's a next node to update its previous reference
+        # Check if there's a next node to update its previous reference
+        if head.next: 
             self.key_to_prev[head.next.key] = self.dummy
 
     #kick method的作用就是把正在访问的在hashtale里对应的值踢到链表尾部
@@ -34,15 +36,18 @@ class LRUCache:
         if node == self.tail:
             return 
         
+        #remove the current node from linkedlist
         prev.next = node.next 
-        if node.next:  # Check if there's a next node to update its previous reference
+        # Check if there's a next node to update its previous reference
+        if node.next:  
             self.key_to_prev[node.next.key] = prev
         node.next = None 
         #然后在把这个node节点作为一个独立节点用push_back函数接到链表尾巴上
         self.push_back(node)
     
     # @return an integer,key就是cache提供的，可以是个字符串，也可以是个整数..
-    def get(self, key): #获取数据
+    #获取数据
+    def get(self, key): 
         #如果key不再哈希表里，就返回-1
         if key not in self.key_to_prev:
             return -1 
@@ -84,6 +89,8 @@ if __name__ == '__main__':
     # print(ll.get(4))
     ll.set(4, 1)
     print(ll.get(4))
+    ll.print_cache()
+    ll.get(3)
     ll.print_cache()
     # ll.get(4)
     # ll.get(3)
