@@ -35,7 +35,7 @@ class RandomizedCollection:
         #e.g: self.indexs[val] = {0, 1},  romove(1)
         #e.g: self.indexs[1] = {1}, x = 0
         x = self.indexs[val].pop()
-        
+
         #在数组中将这个要删的数的位置赋值为None
         #self.vals = [None, 1, 2]
         self.vals[x] = None
@@ -60,3 +60,6 @@ if __name__ == '__main__':
    
     y = obj.getRandom()
     print(y)
+
+
+
