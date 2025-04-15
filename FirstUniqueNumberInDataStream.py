@@ -38,3 +38,6 @@ if __name__ == '__main__':
     number = 5
     x = ll.firstUniqueNumber(nums, number)
     print(x)
+
+
+
