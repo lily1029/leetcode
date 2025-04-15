@@ -42,7 +42,7 @@ class DataStream:
         prev.next = prev.next.next
         #将删完的节点的下个节点的key值连向prev
         if prev.next:
-            self.num_to_prev[prev.next.val] = prev
+            self.num_to_prev[prev.next.key] = prev
         else:
             # if we removed the tail node, prev will be the new tail
             self.tail = prev
