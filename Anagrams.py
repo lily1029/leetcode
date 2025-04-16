@@ -19,10 +19,12 @@ class Solution:
             if sortedstring in hashmap and hashmap[sortedstring] > 1:
                 #result: ['lint', 'intl', 'inlt']
                 result.append(string)
-                
+
         return result
 if __name__ == '__main__':
     ll = Solution()
     strs = ["lint", "intl", "inlt", "code"]
     x = ll.anagrams(strs)
     print(x)
+
+
