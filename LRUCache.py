@@ -58,6 +58,9 @@ class LRUCache:
     def set(self, key, value):
         if key in self.key_to_prev:
             self.kick(self.key_to_prev[key])
+            #这里有个地方判断链表的最后一个节点值是不是等于想设置的value值
+            #如果是，就返回True,并return，不用走剩下的code, 因为在kick 里已经在链表末尾
+            #链接了这个设置的value值的node，这里想检验一下，不用走多余的剩下的code
             self.key_to_prev[key].next.value = value
             return 
         
@@ -88,6 +91,7 @@ if __name__ == '__main__':
     # ll.get(4)
     # print(ll.get(4))
     ll.set(4, 1)
+    ll.set(3, 5)
     print(ll.get(3))
     ll.print_cache()
     ll.get(4)

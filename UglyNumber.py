@@ -24,3 +24,5 @@ if __name__ == '__main__':
     num  = 14
     x = ll.isUgly(num)
     print(x)
+
+
