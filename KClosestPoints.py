@@ -19,26 +19,29 @@ class Solution:
             #here we use .get_distance method to figure out how long the distance from 
             #this point to the origin
             dist = self.get_distance(point, origin)
+
             #then, we push the point to the heapq, here, we use - , because it is 
             #min heap 
             heapq.heappush(self.heap, (-dist, -point.x, -point.y))
 
             #here we only want to find k closest points, so we compare the length and k
-            #so if length > k, we popout the bigger one
+            #so if length > k, we pop out the bigger one
             if len(self.heap) > k:
                 heapq.heappop(self.heap)
         
-        #here we restore the final result
+        # here we restore the final result
         ret = []
-        #here is the last results, we append the points with positive numbers
+
+        # here is the last results, we append the points with positive numbers
         while len(self.heap) > 0:
             _, x, y = heapq.heappop(self.heap)
             ret.append(Point(-x, -y))
         
-        #reverse and make it from smaller to bigger
+        # reverse and make it from smaller to bigger
         ret.reverse()
         return ret 
-
+    
+    # 这里是二位平面求两个点的距离
     def get_distance(self, a: Point, b: Point) -> int:
         return (a.x - b.x) ** 2 + (a.y - b.y) ** 2
 
