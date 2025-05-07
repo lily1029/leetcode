@@ -58,3 +58,6 @@ if __name__ == '__main__':
     ll = Solution()
     x = ll.kClosest(points, origin, k)
     print(x)
+
+
+
