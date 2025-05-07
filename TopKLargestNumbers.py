@@ -22,3 +22,8 @@ if __name__ =='__main__':
     k = 3
     x = ll.topk(nums, k)
     print(x)
+
+
+
+
+
