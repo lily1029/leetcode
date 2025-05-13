@@ -35,3 +35,9 @@ if __name__ =='__main__':
     s.add(100)
     s.topk()
     print(s.topk())
+
+
+
+
+
+
