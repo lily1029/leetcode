@@ -20,9 +20,11 @@ class Solution:
         # Create a dummy node to connect merged nodes
         #建一个dummy node 来连后面merge好的nodes
         dummy = ListNode()
+
         # Tail points to the dummy node initially
         #尾巴节点也指向dummy node
         tail = dummy
+
         # Create a min heap
         #建一个heap
         heap = []
@@ -37,13 +39,17 @@ class Solution:
         #然后循环heap, 只要heap不为空
         while heap:
             # Pop the smallest node from the heap, 并记录它是smallest_node
+            #这里从heap里pop出来的一定是heap里最小的数
             smallest_node = heapq.heappop(heap)
+
             # Connect the smallest node to the tail
             #尾巴节点连上这个smallest_node节点
             tail.next = smallest_node
+
             # Move tail to the newly added node
             #更新尾巴节点
             tail = tail.next
+            
             # If there's a next node in the popped node, push it to heap
             #如果smallest_node节点的下个节点不为空，将smallest_node.next推入到heap里
             if smallest_node.next:

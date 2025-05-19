@@ -23,7 +23,7 @@ class Solution:
         
         #当heap的长度不为零时，对它进行循环
         while len(heap):
-            
+
             #取出heap中的最小值
             val, x, y = heap[0]
 
@@ -46,3 +46,6 @@ if __name__ == '__main__':
     arrays = [[1, 3], [2, 4], [0, 8]]
     x = ll.mergekSortedArrays(arrays)
     print(x)
+
+
+
