@@ -9,6 +9,10 @@ class ListNode:
     #比较两个linkedlist上nodes值大小
     def __lt__(self, other):
         return self.val < other.val
+    
+#这里也可以使用lambad表达式去对2个数做比较，uncomment 下下面这个line
+#并且comment out 上面的比较method 就可以了      
+#ListNode.__lt__ = lambda x, y: (x.val < y.val)
 
 class Solution:
     def mergeKLists(self, lists):
@@ -49,7 +53,7 @@ class Solution:
             # Move tail to the newly added node
             #更新尾巴节点
             tail = tail.next
-            
+
             # If there's a next node in the popped node, push it to heap
             #如果smallest_node节点的下个节点不为空，将smallest_node.next推入到heap里
             if smallest_node.next:
