@@ -53,8 +53,12 @@ class Solution:
             self.quickSelect(nums, left, end, k)
 if __name__ =='__main__':
     ll = Solution()
-    k = 3
-    nums = [9, 3, 2, 4, 8]
+    # k = 3
+    # nums = [9, 3, 2, 4, 8]
+    # k = 2
+    # nums = [3, 2, 1, 5, 6, 4]
+    k = 4
+    nums = [3, 2, 3, 1, 2, 4, 5, 5, 6]
     x = ll.kthLargestElement(k, nums)
     print(x)
 
