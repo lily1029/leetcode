@@ -14,6 +14,9 @@ class Solution:
         
         #建图
         #根据依赖关系建图，
+        #这里边有个地方需要注意明白，这里是用adjacency list建图
+        #这里的node_out 代表学的具体课程 like 0, 1, 2 是graph的index
+        #这个graph的label是 node_in, 表示下一个要学的课程（也是neighbor)
         for node_in, node_out in prerequisites:
             graph[node_out].append(node_in)
             in_degree[node_in] += 1 
@@ -48,8 +51,10 @@ class Solution:
         return num_choose == numCourses
 if __name__ == '__main__':
     ll = Solution()
-    n = 2
-    prerequisites =  [[1,0]] 
+    # n = 2
+    # prerequisites =  [[1,0]] 
+    n = 3
+    prerequisites = [[1,0], [2, 1]]
     x = ll.canFinish(n, prerequisites)
     print(x)
 

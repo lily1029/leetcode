@@ -44,6 +44,7 @@ class Solution:
 
 if __name__ == '__main__':
     ll = Solution()
+    #test data 1 
     ll.add(1)
     x = ll.getMedian()
     print(x)
@@ -59,3 +60,26 @@ if __name__ == '__main__':
     ll.add(5)
     w = ll.getMedian()
     print(w)
+
+    #test data 2
+    # ll.add(4)
+    # x = ll.getMedian()
+    # print(x)
+    # ll.add(5)
+    # y = ll.getMedian()
+    # print(y)
+    # ll.add(1)
+    # z =ll.getMedian()
+    # print(z)
+    # ll.add(3)
+    # q = ll.getMedian()
+    # print(q)
+    # ll.add(2)
+    # w = ll.getMedian()
+    # print(w)
+    # ll.add(6)
+    # a = ll.getMedian()
+    # print(a)
+    # ll.add(0)
+    # b = ll.getMedian()
+    # print(b)
