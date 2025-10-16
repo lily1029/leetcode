@@ -29,3 +29,5 @@ if __name__ =='__main__':
         s = "cedec"
         x = solution.can_permute_palindrome(s)
         print(x)
+
+
