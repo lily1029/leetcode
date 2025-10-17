@@ -13,13 +13,17 @@ class Solution:
     
     def topSort(self, graph):
         # write your code here
+        # 这里统计图中所有点的入度，这里是有向图
         node_to_indegree = self.get_indegree(graph)
+
         # bfs begins here
         # we use order to store the result topological sorting order
         order = []
+
         # we put all nodes which have in-degree = 0 here in start_nodes
         start_nodes = [n for n in graph if node_to_indegree[n] == 0]
-        # put all start_nodes in queue
+
+        # put all start_nodes in queue which the in-degree = 0
         queue = collections.deque(start_nodes)
         # go through the queue and pop out the first one and append to order list
         while queue:
