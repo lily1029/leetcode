@@ -11,7 +11,8 @@ class Solution:
         topo_order = self.topological_sort(graph)
         #最后topo_order 为none org:[1, 2, 3], 所以返回false, test1 data
         return topo_order == org 
-            
+
+    #这里要先通过依赖关系把图建好        
     def build_graph(self, seqs):
         #initialize graph 这里的graph我们用一个hashmap. key是每个节点，value是一个set,
         #set里的值是key的依赖关系e.g: graph: {1: {2, 3}} 要先学完1，才能学2或是3, test1 data
@@ -28,6 +29,8 @@ class Solution:
                 graph[seq[i - 1]].add(seq[i])
 
         return graph
+    
+    #建好图后，因为是有向图，统计每个点的入度
     #indegrees: {1: 0, 2: 0, 3: 0}
     def get_indegrees(self, graph):
         indegrees = {
@@ -41,7 +44,8 @@ class Solution:
                 indegrees[neighbor] += 1
                 
         return indegrees
-        
+
+    #建好的图有，而且知道每个点的入度，这时进行topological sort   
     def topological_sort(self, graph):
         #当做topological sort时第一步时统计图中的入度(indegrees)
         indegrees = self.get_indegrees(graph)
