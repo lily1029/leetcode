@@ -79,16 +79,16 @@ class Solution:
 if __name__ =='__main__':
     soultion = Solution()
     #test 1
-    # org = [1,2,3]
-    # seqs = [[1,2],[1,3]]
-    # x = soultion.sequenceReconstruction(org, seqs)
-    # y = print(x)
-
-    #test 2
     org = [1,2,3]
-    seqs = [[1,2],[1,3],[2,3]]
+    seqs = [[1,2],[1,3]]
     x = soultion.sequenceReconstruction(org, seqs)
     y = print(x)
+
+    #test 2
+    # org = [1,2,3]
+    # seqs = [[1,2],[1,3],[2,3]]
+    # x = soultion.sequenceReconstruction(org, seqs)
+    # y = print(x)
 
         
 

@@ -12,11 +12,14 @@ class Solution:
 
             mid = (start + end) // 2
 
+            #这里只需要用<=号，就可以算出last position of the target
             if A[mid] <= target:
                 start = mid
             else:
                 end = mid
-            
+
+        #因为最后的start 和end 很可能是一样的，因为要求last position,
+        #所以这里要先写 if A[end] == target， 然后在 A[start] == target
         if A[end] == target:
             return end
         if A[start] == target:
