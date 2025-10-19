@@ -13,7 +13,7 @@ class Solution:
     def k_closest_numbers(self, a: List[int], target: int, k: int) -> List[int]:
         #找到A[left] < target, A[right] >= target,也就是最接近target的两个数，他们肯定是邻居
         #所以，找到right后，left = right - 1, 
-        #.find_upper_closest()此函数是找到大于target的最小数，此函数就是经典binary search
+        #.find_upper_closest()此函数是找到大于等于target的最小数，此函数就是经典binary search
         right = self.find_upper_closest(a, target)
         left = right - 1
     
