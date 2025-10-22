@@ -14,16 +14,21 @@ class Solution:
             mid = (start + end) // 2
             # here is the left upper case
             if A[mid] >= A[start]:
+                #当是在upper case的情况，target包在start 和mid
+                #之间，所以end = mid, 丢掉mid右边的部分
                 if A[start] <= target <= A[mid]:
                     end = mid
                 else:
                     start = mid
             else:
                 # this case is right bottom 
+                #如果target包在mid 和end之间，丢掉mid左边部分（上面部分），
+                #set start = mid, 然后继续二分查找
                 if A[mid] <= target <= A[end]:
                     start = mid
                 else:
                     end = mid
+                    
          # here is we have limited only two elements left
         if A[start] == target:
             return start
@@ -33,7 +38,7 @@ class Solution:
 if __name__ == '__main__':
     ll = Solution()
     A = [4, 5, 1, 2, 3]
-    target = 1
+    target = 5
     x = ll.search(A, target)
     print(x)
 
