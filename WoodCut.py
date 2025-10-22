@@ -15,13 +15,16 @@ class Solution:
         while start + 1 < end:
             mid = (start + end) // 2 
             
-            #如果此条件成立， 说明k值可以调大
+            #如果此条件 >= k 成立，说明单根木头长度可以在调大一点/长
+            #所以扔掉start左半部分，让start = mid值，之后变大mid值
             if self.get_pieces(L, mid) >= k:
                 start = mid 
             else:
+                #否则，切不出k个木头，单根木头长度要调短，end将值=mid
+                #扔掉mid右边大的值， 将end值变小成mid值
                 end = mid 
         
-        
+        #最后，就剩start, end 两个值，看哪个符合条件就return 哪个
         if self.get_pieces(L, end) >= k:
             return end
         if self.get_pieces(L, start) >= k:
