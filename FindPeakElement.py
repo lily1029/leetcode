@@ -16,6 +16,8 @@ class Solution:
         while start + 1 < end:
             mid = (start + end) // 2 
             # 在上升区间
+            #如果这个条件满足说明在上升区间，丢掉mid左边
+            #的一半， start = mid, 继续后面的二分
             if a[mid] < a[mid + 1]:
                 start = mid 
             else:
