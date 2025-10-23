@@ -7,6 +7,8 @@ class Solution:
         
         #拿到row 和 col 的各自长度
         row, col = len(matrix), len(matrix[0])
+        #如果想把它做成arry的长度算，row*col-1
+        #array starts at 0 position
         start, end = 0, row * col - 1  
          
         while start <= end:
@@ -21,11 +23,15 @@ class Solution:
             #进行比较
             if num == target:
                 return True
+            #这里如果num小于target,扔掉mid左边的所有数，并从mid + 1开始继续
+            #二分查找
             elif num < target:
                 start = mid + 1
+            #反之，如果num大于target,缩小end 的距离，到end = mid -1
             else:
                 end = mid - 1
         
+        #如果for 循环所有情况后，还没有，返回false
         return False
 if __name__ =='__main__':
     ll = Solution()
