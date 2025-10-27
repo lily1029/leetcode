@@ -4,18 +4,21 @@ class Solution:
     @param: B: An integer array
     @return: a double whose format is *.5 or *.0
     """
+    #此题的做法要先明白找中点就是找第几大的数，是一个道理，所以这里进行二分第几大的数
     def findMedianSortedArrays(self, A, B):
         m, n = len(A), len(B)
         
-        # 如果是奇数
+        # 如果是奇数, 这里的(m + n) // 2 + 1 是算最中间位置的 Kth, 
         if (m + n) % 2 == 1:
             return self.getKth(A, 0, m - 1, B, 0, n - 1,  (m + n) // 2 + 1)
         
-        # 如果是偶数
+        # 如果是偶数,找出A数组的中位数，并且找出B数组的中位数，
+        #然后2个中位数取中点， e.g: （left + right）/2
         left = self.getKth(A, 0, m - 1, B, 0, n - 1,  (m + n) // 2)
         right = self.getKth(A, 0, m - 1, B, 0, n - 1,  (m + n) // 2 + 1)
         return (left + right) / 2 
-       
+
+    #此函数是找第几大的数   
     def getKth(self, A, start1, end1, B, start2, end2, k):
         len1 = end1 - start1 + 1 
         len2 = end2 - start2 + 1 
@@ -30,11 +33,12 @@ class Solution:
             return B[start2 + k - 1]
             
      
-        # 已经找到第k小的数
+        # 已经找到第k小的数， 这里一直二分第几大数，知道二分k=1就找到了，结束了
+        #每次找的区间也在不断变小，直到这个区间只剩（A[start1] , B[start2]）
         if k == 1:
             return min(A[start1] , B[start2])
        
-        # 开始二分
+        # 开始二分，这里是具体每个arry上进行二分
         i = start1 + min(len1, k // 2) - 1 
         j = start2 + min(len2, k // 2) - 1 
         
