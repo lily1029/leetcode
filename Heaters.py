@@ -39,10 +39,19 @@ class Solution:
     
 if __name__ =='__main__':
     ll = Solution()
+    #test data 1
     # houses = [1, 2, 3, 4]
     # heaters = [1, 4]
+
+    #test data 2
     houses = [2, 7, 4, 9, 10, 8]
     heaters = [3, 7, 5]
+
+    #test data 3
+    # houses = [1,2,3]
+    # heaters = [2]
+
+
     x = ll.findRadius(houses, heaters)
     print(x)
 

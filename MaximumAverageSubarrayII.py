@@ -35,20 +35,23 @@ class Solution:
         for num in nums:
             prefixSum.append(prefixSum[-1] + num - average)
         
-        #这里的这个minPrefixSum是个全局变量
+        #这里的这个minPrefixSum是个全局变量, i 是有指针
         minPrefixSum = 0 
         for i in range(k, len(nums) + 1 ):
             #只要找到一个子数组长度大于等于k, 且它的和大于等于0，就是True的
             if prefixSum[i] - minPrefixSum >= 0:
                 return True 
             #这里要更新minPrefixSum是因为滑动窗口向右走时，minPrefixSum是左边窗口的指针
-            #这样确保窗口的size 为k,选小的是因为-average,而且是prefixsum的和
+            #这样确保窗口的size是大于等于k,选小的是因为想找最大的结果，要减去最小的值，才是
+            #是最大的值的结果， 记住这里的sub array size 是大于等于k
             minPrefixSum = min(minPrefixSum, prefixSum[i - k + 1])
             
         return False
 if __name__ =='__main__':
     ll = Solution()
-    nums = [1,12,-5,-6,50,3]
+    # nums = [1,12,-5,-6,50,3]
+    # k = 3
+    nums  = [1, -2, -1, 5, 3]
     k = 3
     x = ll.maxAverage(nums, k)
     print(x)
