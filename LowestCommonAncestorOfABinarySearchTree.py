@@ -54,8 +54,8 @@ class Solution:
 if __name__ == '__main__':
     root = build_tree()
     ll = Solution()
-    p = root.left
-    q = root.right
+    p = root.left.left
+    q = root.left.right.right
     x = ll.lowestCommonAncestor(root, p, q)
 
     print(x.val)

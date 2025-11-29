@@ -7,9 +7,13 @@ def build_tree():
     node_1 = TreeNode(2)
     node_2 = TreeNode(1)
     node_3 = TreeNode(3)
+    node_4 = TreeNode(4)
+
    
     node_1.left = node_2
     node_1.right = node_3
+
+    node_3.right = node_4
 
     return node_1
 
@@ -47,7 +51,7 @@ class Solution:
 if __name__ == '__main__':
     root = build_tree()
     ll = Solution()
-    p = root
+    p = TreeNode(4)
     x = ll.inorderPredecessor(root, p)
     print(x.val)
 

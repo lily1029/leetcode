@@ -15,25 +15,25 @@ def build_tree():
     node_3.left = node_4
 
     return node_1
-"""
+
 # Method 1 Recursion Version Answer
-class Solution:
+# class Solution:
    
-    def insertNode(self, root, node):
-        # 当root为空时，就是找到该插这个node的地方，所以返回node
-        if not root:
-            return node 
+#     def insertNode(self, root, node):
+#         # 当root为空时，就是找到该插这个node的地方，所以返回node
+#         if not root:
+#             return node 
         
-        #充分利用bst性质，root的值先和插入的node进行比较
-        #如果root的值大于node的值，走向root的左子树，调用recursion向左
-        if root.val > node.val:
-            root.left = self.insertNode(root.left, node)
-        else:
-            #否则走向root的右子树，继续recursion向右
-            root.right = self.insertNode(root.right, node)
+#         #充分利用bst性质，root的值先和插入的node进行比较
+#         #如果root的值大于node的值，走向root的左子树，调用recursion向左
+#         if root.val > node.val:
+#             root.left = self.insertNode(root.left, node)
+#         else:
+#             #否则走向root的右子树，继续recursion向右
+#             root.right = self.insertNode(root.right, node)
         
-        return root
-"""
+#         return root
+
 # Method 2 Non Recursion Version
 class Solution:
     """
