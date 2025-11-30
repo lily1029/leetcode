@@ -43,7 +43,8 @@ class Solution:
 
     def dfs(self, root, target, results): 
         #dfs时传进去root, target, 和最后要知道的results
-        if root is None:#当root为空时，返回
+        #当root为空时，返回
+        if root is None:
             return
         
         #定义一个variable 放路径
