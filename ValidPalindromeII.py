@@ -4,7 +4,9 @@ class Solution:
     @return: nothing
     """
     def validPalindrome(self, s):
+        #这里调用twoPointer()算法，因为twoPointer()算法检查s是不是有效的valid palindrome
         left, right = self.twoPointer(s, 0, len(s) - 1) 
+        
         #when it appears left >= right, it means it is an odd palindrome 
         #so, return True（且两边相等的以走完）
         if left == right:
