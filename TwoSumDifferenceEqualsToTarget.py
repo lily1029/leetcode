@@ -31,7 +31,7 @@ class Solution:
 if __name__ == '__main__':
     ll = Solution()
     nums = [2, 7, 15, 24]
-    target = 5 
+    target = 8
     x = ll.twoSum7(nums, target)
     print(x)
 

@@ -21,6 +21,7 @@ class Solution(object):
             # go through the second number b starting i + 1 
             for j in range(i + 1, length - 2):
                 # 正常情况 j = i + 1, 但是如有重复出现的 j != i + 1, so continue
+                #当  j != i + 1 and nums[j] == nums[j - 1]说明有重复出现
                 if j != i + 1 and nums[j] == nums[j - 1]:
                     continue
                 

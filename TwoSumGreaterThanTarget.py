@@ -25,7 +25,7 @@ class Solution:
         return res
 if __name__ == '__main__':
     ll = Solution()
-    nums = [2, 7, 11, 15] 
+    nums = [2, 7, 11, 12, 13, 15] 
     target = 24
     x = ll.twoSum2(nums, target)
     print(x)
