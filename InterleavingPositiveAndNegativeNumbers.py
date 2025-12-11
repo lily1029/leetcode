@@ -20,6 +20,8 @@ class Solution:
         pos_count = len(A) - k 
         
         #这里设置一个flag. 如果正数大于负数 isPos为正
+        #这里考虑到了flag的用法，如果负数多，设置起初flag为False开始
+        #如果正数多，设置起初的flag为True开始
         isPos = pos_count > neg_count 
         
         #此for循环使正负交替出现， 用flag控制正负交替出现，条件在下方
@@ -39,7 +41,8 @@ class Solution:
         return A
 if __name__ == '__main__':
     ll = Solution()
-    #A = [-1, -2, -3, 4, 5, 6]
-    A = [5, -1, -2, 3]
+    # A = [-1, -2, -3, 4, 5, 6, 7]
+    # A = [5, -1, -2, 3]
+    A = [-1, -2, 3, 4, 5, 6, 7]
     x = ll.rerange(A)
     print(x)
