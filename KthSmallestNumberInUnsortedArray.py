@@ -29,10 +29,10 @@ class Solution:
         
         # k在right的左边，recursively do left part       
         if k <= right:
-            return self.quickSelect(nums, start, right, k)
+            self.quickSelect(nums, start, right, k)
         # k 在 left 的右边，recursively do right part
         elif k >= left: #and left <= end:
-            return self.quickSelect(nums, left, end, k)
+            self.quickSelect(nums, left, end, k)
         
 if __name__ =='__main__':
     ll = Solution()
