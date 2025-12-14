@@ -31,7 +31,7 @@ class Solution:
         if k <= right:
             self.quickSelect(nums, start, right, k)
         # k 在 left 的右边，recursively do right part
-        elif k >= left: #and left <= end:
+        if k >= left: #and left <= end:
             self.quickSelect(nums, left, end, k)
         
 if __name__ =='__main__':
