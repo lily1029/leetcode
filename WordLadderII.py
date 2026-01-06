@@ -11,8 +11,8 @@ class Solution:
     #然后在从 start 到 end 做一次 DFS，每走一步必须确保离 end 的 distance 越来越近。
     def findLadders(self, start, end, dict):
 
-        dict.append(start)
-        dict.append(end)
+        dict.add(start)
+        dict.add(end)
         distance = {}
 
         self.bfs(end, distance, dict)
@@ -27,8 +27,11 @@ class Solution:
 
         while queue:
             word = queue.popleft()
+            #word从queue里跳出来后，下一个合法的单词是，用get_next_words（）
+            #函数算出
             for next_word in self.get_next_words(word, dict):
                 if next_word not in distance:
+                    #算它的距离
                     distance[next_word] = distance[word] + 1 
                     queue.append(next_word)
       
@@ -43,14 +46,16 @@ class Solution:
                     words.append(next_word)
         return words 
     
-    #从start 点到end点左dfs,并确保和end离的越来越近                   
+    #从start 点到end点左dfs,并确保和end离的越来越近,curt是start(hit), 
+    #target 是end点(cog), distance是字典，记录每个点到终点的距离， 
+    #dict是题目给的， path是每一条合法可以走通的路径                  
     def dfs(self, curt, target, distance, dict, path, results):
         if curt == target:
             results.append(list(path))
             return 
         
         for word in self.get_next_words(curt, dict):
-            #这里确保点越走越距离终点近
+            #这里确保点越走越距离终点近，这里是剪枝操作
             if distance[word] != distance[curt] - 1:
                 continue 
             path.append(word)
@@ -61,7 +66,7 @@ if __name__ == '__main__':
     ll = Solution()
     start ="hit"
     end = "cog"
-    dict =["hot","dot","dog","lot","log"]
+    dict ={"hot","dot","dog","lot","log"}
     x = ll.findLadders(start, end, dict)
     print(x)
 
