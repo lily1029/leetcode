@@ -26,7 +26,8 @@ class LRUCache:
         if head.next: 
             self.key_to_prev[head.next.key] = self.dummy
 
-    #kick method的作用就是把正在访问的在hashtale里对应的值踢到链表尾部
+    #kick method的作用就是把正在访问的在hashtale里对应的值踢到链表尾部,这里
+    #链表尾部，表示most recently used(访问的node),总是放在最右边，符合题意
     #这里的 prev来自：get 里self.kick(self.key_to_prev[key])
     #self.key_to_prev[key] = prev, prev 是linkedlist 上key对应的前继节点  
     #将数据移动至尾部
@@ -95,7 +96,7 @@ if __name__ == '__main__':
     print(ll.get(3))
     ll.print_cache()
     ll.get(4)
-    #ll.print_cache()
+    ll.print_cache()
     # ll.get(4)
     # ll.get(3)
     # ll.print_cache()

@@ -13,6 +13,7 @@ class Solution:
         # dfs搜索
         self.dfs(nums, 0, [], res)
 
+        #返回最终结果res
         return res
         
     def dfs(self, nums, k, subset, res):

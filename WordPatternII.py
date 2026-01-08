@@ -57,8 +57,10 @@ class Solution:
     
 if __name__ == '__main__':
     ll = Solution()
+    # pattern = "abab"
+    # str = "redblueredblue"
     pattern = "abab"
-    str = "redblueredblue"
+    str = "redred"
     x = ll.wordPatternMatch(pattern, str)
     print(x)
 
