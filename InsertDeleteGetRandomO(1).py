@@ -17,8 +17,9 @@ class RandomizedSet:
         if val in self.pos:
             return False
         
-        #在这里得到hash的value
+        #insert val to self.nums 里
         self.nums.append(val)
+        #在这里得到hash的value
         self.pos[val] = len(self.nums) - 1 
         return True 
 
