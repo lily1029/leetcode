@@ -26,7 +26,7 @@ class RandomizedCollection:
 		#1.获取要删的数在字典中最先出现的位置，也是在array最左边的位置
         #这里可以用pop() method
         #2.在数组中将x位置赋值为None
-        #3.return True 
+        #3.return True, 表示已经remove 了这个数(val)
         #如果此数不再dictionary里，返回False
         if not self.indexs[val]:
             return False
