@@ -21,7 +21,8 @@ class Solution:
             dist = self.get_distance(point, origin)
 
             #then, we push the point to the heapq, here, we use - , because it is 
-            #min heap 
+            #min heap,we push 出 min heap 负数最小的数， 就是弹出了距离最远的点，剩下就是
+            #距 origin 最近的点了
             heapq.heappush(self.heap, (-dist, -point.x, -point.y))
 
             #here we only want to find k closest points, so we compare the length and k

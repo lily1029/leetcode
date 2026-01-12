@@ -20,7 +20,7 @@ class Solution:
         return num == 1
 if __name__ == '__main__':
     ll = Solution()
-    #num = 8 
+    #num = 9 
     num  = 14
     x = ll.isUgly(num)
     print(x)
