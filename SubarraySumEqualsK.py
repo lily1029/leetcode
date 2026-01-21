@@ -37,7 +37,12 @@ class Solution:
 
 if __name__ == '__main__':
     ll = Solution()
-    nums = [1, 1, 1]
-    k = 2
+    # nums = [1, 1, 1]
+    # k = 2
+    nums = [2,1,-1,1,2]  
+    k = 3
+
     x = ll.subarraySumEqualsK(nums, k)
     print(x)
+
+
