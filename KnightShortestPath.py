@@ -1,5 +1,5 @@
 
-import collections
+from collections import deque
 class Point:
     def __init__(self, a=0, b=0):
         self.x = a
@@ -20,7 +20,7 @@ class Solution:
     def shortestPath(self, grid, source, destination):
         #x is row position, y is column position
         #put the start source point into queue
-        queue = collections.deque([(source.x, source.y)])
+        queue = deque([(source.x, source.y)])
         #we use a dictionary to figure out the distance
         #initize source to source, the distance is 0
         #key is matrix's position, value is the distance to the source point
