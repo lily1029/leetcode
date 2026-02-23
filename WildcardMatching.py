@@ -54,10 +54,10 @@ class Solution:
 
 if __name__ == '__main__':
     ll = Solution()
-    s = "abb"
-    p = "?*"
-    # s = "abbcd"
-    # p = "a*b*"
+    # s = "abb"
+    # p = "?*"
+    s = "abbcd"
+    p = "a*b*"
     x = ll.isMatch(s, p)
     print(x)
  

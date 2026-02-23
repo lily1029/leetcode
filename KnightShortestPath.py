@@ -61,7 +61,7 @@ class Solution:
         n, m = len(grid), len(grid[0])
 
         # if x, y outside the boundary condition, return False 
-        if x < 0 or x >= n or y < 0 or y >= m:
+        if not (0 <= x < n and 0 <= y < m):
             return False
         # reach this step, it means the new move is valid 
         # 这里要写not grid[x][y], 走到这一步，说明这个点是valid, 那么这个点会返回
