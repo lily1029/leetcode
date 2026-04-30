@@ -36,7 +36,7 @@ class Solution:
                 #from the word, actually we list all the words and check whether it is 
                 #appear in dict or not 
                 for next_word in self.get_next_words(word, dict):
-                    if next_word not in dict or next_word in visited:
+                    if next_word in visited:
                         continue 
                     queue.append(next_word)
                     visited.add(next_word)
