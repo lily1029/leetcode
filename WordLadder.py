@@ -12,7 +12,7 @@ class Solution:
         dict.append(end)
 
         #put the first word start in queue
-        queue = collections.deque([start])
+        queue = deque([start])
         #as long as we put it in queue, we set it as a visited node
         #we use a set to keep track
         visited = set([start])
