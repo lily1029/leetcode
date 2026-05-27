@@ -15,7 +15,7 @@ class Solution:
         while start + 1 < end:
             mid = (start + end) // 2 
             
-            #如果此条件 >= k 成立，说明单根木头长度可以在调大一点/长
+            #如果此条件 >= k 成立，说明单根木头长度可以在调大一点长
             #所以扔掉start左半部分，让start = mid值，之后变大mid值
             if self.get_pieces(L, mid) >= k:
                 start = mid 

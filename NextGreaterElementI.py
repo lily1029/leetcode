@@ -32,3 +32,14 @@ if __name__ == '__main__':
     nums2 = [1,3,4,2]
     x = ll.next_greater_element(nums1, nums2)
     print(x)
+
+
+# Complexity Analysis
+# Let n and m represent the length of the nums2 and nums1 array respectively.
+# Time complexity: O(n). The entire nums2 array (of size n) is scanned only once. Each of
+# the stack&#39;s n elements are pushed and popped exactly once. The nums1 array is also
+# scanned only once. All together this requires O(n+n+m) time. Since nums1 must be a
+# subset of nums2, we know m must be less than or equal to n. Therefore, the time
+# complexity can be simplified to O(n).
+# Space complexity: O(n). map will store n key-value pairs while stack will contain at most
+# n elements at any given time.
